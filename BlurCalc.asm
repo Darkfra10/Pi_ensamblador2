@@ -16,38 +16,44 @@ BlurCalc:
 
     mov rbx, rsi
     mov rax, rbx
-    mul 3
+    mov r9, 3 
+    mul r9
     mul rcx ;; height
     mov rbx, rax 
     sub rbx, rsi 
     sub rbx, 2
+    cmp rdx, rbx
     jg  Bottom
-
 
     mov rax, 0 
     mov rcx, rsi
-    add rcx, 3
-    add rax, [rdi-rcx] ;;top left
-    add rax, [rdi-rsi] ;;top mid
-    sub rcx, 6
-    add rax, [rdi-rcx] ;;top right 
+    add rcx, 12 ;;;;; 3 *4
 
-    add rax, [rdi-1] ;; mid left
-    add rax, [rdi] ;; mid mid
-    add rax, [rdi+1] ;;mid right
-
-    add rax, [rdi+rcx] ;;bottom left
-    add rax, [rdi+rsi] ;;bottom mid 
-    add rcx, 6
-    add rax, [rdi+rcx] ;;bottom right
+    ;;add rax, [rdi-rcx] ;;top left
+    ;;add rax, [rdi-rsi] ;;top mid
+    sub rcx, 24 ;;;;;; 6 *4
+    ;;add rax, [rdi-rcx] ;;top right 
 
 
-    div 9 ;;average per color
+    mov rbx, rdx
+    add rbx, 12
+    ;;add eax, dword [rdi+rbx] ;;;;;; 3 *4 mid left
+    sub rbx, 24
+    add eax, dword [rdi+rdx*4] ;; mid mid
+    ;;add eax, dword [rdi+rbx] ;;;;; 3 *4 mid right
+
+    ;;add eax, dword [rdi+rcx] ;;bottom left
+    ;add eax, dword [rdi+rsi] ;;bottom mid 
+    add ecx, 24 ;;;;; 6 *4
+    ;;add eax, dword [rdi+rcx] ;;bottom right
+
+    mov r9, 9
+    ;;div r9 ;;average per color
 
     ret
 
 Top:
-    mov rax, 0 ;;temporary
+    mov rax, 1 ;;temporary
     ret
 Bottom:
     mov rax, 0 ;;temporary
