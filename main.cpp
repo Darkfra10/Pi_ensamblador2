@@ -16,31 +16,31 @@ int main() {
     data[0]=20;
     data[1]=255;
     data[2]=75;
-    data[3]=13;
-    data[4]=84;
-    data[5]=174;
-    data[6]=156;
+    data[3]=13; 
+    data[4]=84; //16
+    data[5]=174; // 20
+    data[6]=156; //24
     data[7]=52;
-    data[8]=111;
+    data[8]=111; //32
 
     data[9]=20;
-    data[10]=255;
+    data[10]=230; //40
     data[11]=75;
     data[12]=13;
-    data[13]=84;
+    data[13]=84; //52
     data[14]=174;
-    data[15]=156;
+    data[15]=156; //60
     data[16]=52;
-    data[17]=111;
+    data[17]=111; //68
 
-    data[18]=20;
-    data[19]=255;
+    data[18]=20; //72
+    data[19]=255; //76
     data[20]=75;
     data[21]=13;
-    data[22]=84;
+    data[22]=84;  //88
     data[23]=174;
     data[24]=156;
-    data[25]=52;
+    data[25]=69; //100
     data[26]=111;
     /*for (int k = 0; k < 27; k++)
     {
@@ -53,7 +53,7 @@ int main() {
         data[k]=BlurCalc(data[k], 3, k, 3 );
         cout<<k<<": "<<data[k]<<" ";
     }*/
-    int k=52;
+    int k=13;
     data[k]=BlurCalc(data, 3, k, 3 );
         cout<<k<<": "<<data[k]<<" ";
     cout<<endl;
