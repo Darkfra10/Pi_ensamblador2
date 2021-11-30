@@ -42,11 +42,12 @@ int main() {
     data[24]=156;
     data[25]=69; //100
     data[26]=111;
-    /*for (int k = 0; k < 27; k++)
+    for (int k = 0; k < 27; k++)
     {
         data[k]=NegativeCalc(data[k]);
+        cout<<"NEGATIVE"<<endl;
         cout<<k<<": "<<data[k]<<" ";
-    }*/
+    }
     cout<<endl;
     /*for (int k = 0; k < 9; k++)
     {
@@ -54,10 +55,12 @@ int main() {
         cout<<k<<": "<<data[k]<<" ";
     }*/
     const char* colors[3]={"Blue", "Green", "Red"};
-    for (int k = 12; k < 15; k++)
+    int i=12;
+    for (int k = i; k < i+3; k++)
     {
         data[k]=BlurCalc(data, 3, k, 3 );
-        cout<<colors[k-12]<<": "<<data[k]<<" ";
+        cout<<"BLUR"<<endl;
+        cout<<colors[k-i]<<": "<<data[k]<<" ";
     
     }
     cout<<endl;

@@ -5,10 +5,14 @@ section .data
 section .text
     global HeightCalc
     
-WidthCalc:
-    mov rax 
-    mov byte [rdi+22], [rax+3]
-    mov byte [rdi+23], [rax+2]
-    mov byte [rdi+24], [rax+1]
-    mov byte [rdi+25], [rax]
+HeightCalc:
+    mov rax, 0 
+    mov bh, byte [rdi+22]
+    mov bl, byte [rdi+23]
+    mov ch, byte [rdi+24]
+    mov cl, byte [rdi+25]
+    mov byte[eax+3], bh
+    mov byte[eax+2], bl
+    mov byte[eax+1], ch
+    mov byte[eax], cl
     ret

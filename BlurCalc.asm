@@ -9,20 +9,26 @@ section .text
     global BlurCalc
     
 BlurCalc:
-    mov rbx, rsi
-    add rbx, 2
+
+
+
+
+    mov rax, rcx
+    push rdx
+    mov r9, 3 
+    mul r9
+    mov rbx, rax
+    pop rdx 
     cmp rdx, rbx
     jl Top
 
-    mov rbx, rsi
-    mov rax, rbx
+    mov rax, rcx
     mov r9, 3 
     push rdx
     mul r9
-    mul rcx ;; height
+    mov r9, 2
+    mul r9
     mov rbx, rax 
-    sub rbx, rsi 
-    sub rbx, 2   
     pop rdx 
     cmp rdx, rbx    
     jg  Bottom
@@ -109,11 +115,20 @@ BlurCalc:
 
     mov rdx, 0
     div r9 ;;average per color
+
+
+
     ret 
 
 Top:
-    mov rax, 1 ;;temporary
+    mov eax, dword [rdi+rdx*4] ;;temporary
     ret
 Bottom:
-    mov rax, 7 ;;temporary
+    mov eax, dword [rdi+rdx*4] ;;temporary
+    ret
+FarRight:
+
+    ret
+FarLeft:
+
     ret
