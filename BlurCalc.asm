@@ -106,7 +106,9 @@ BlurCalc:
     add ecx, 24 ;;;;; 6 *4
     add eax, dword [rdi+rcx] ;;bottom right
     mov r9, 9
-    ;;div r9 ;;average per color
+
+    mov rdx, 0
+    div r9 ;;average per color
     ret 
 
 Top:

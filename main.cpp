@@ -53,10 +53,15 @@ int main() {
         data[k]=BlurCalc(data[k], 3, k, 3 );
         cout<<k<<": "<<data[k]<<" ";
     }*/
-    int k=13;
-    data[k]=BlurCalc(data, 3, k, 3 );
-        cout<<k<<": "<<data[k]<<" ";
+    const char* colors[3]={"Blue", "Green", "Red"};
+    for (int k = 12; k < 15; k++)
+    {
+        data[k]=BlurCalc(data, 3, k, 3 );
+        cout<<colors[k-12]<<": "<<data[k]<<" ";
+    
+    }
     cout<<endl;
+    
 
 
     return 0;
