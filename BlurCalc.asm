@@ -33,6 +33,8 @@ BlurCalc:
     cmp rdx, rbx    
     jg  Bottom
 
+
+    
     mov r8, rcx
 
 
@@ -121,14 +123,15 @@ BlurCalc:
     ret 
 
 Top:
-    mov eax, dword [rdi+rdx*4] ;;temporary
+    mov eax, dword [rdi+rdx*4] 
     ret
 Bottom:
-    mov eax, dword [rdi+rdx*4] ;;temporary
+    mov eax, dword [rdi+rdx*4] 
     ret
 FarRight:
-
+    mov eax, dword [rdi+rdx*4] 
     ret
-FarLeft:
 
+FarLeft:
+    mov eax, dword [rdi+rdx*4] 
     ret
